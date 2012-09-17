@@ -55,7 +55,6 @@ public class PropertyResolver {
         final List<File> propertyFiles = getPropertyFiles(classLoader);
 
         for (final File file : propertyFiles) {
-            System.out.println("file.getAbsolutePath() = " + file.getAbsolutePath());
             final Properties p = new Properties();
             p.load(new FileInputStream(file));
 
