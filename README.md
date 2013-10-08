@@ -54,3 +54,9 @@ Requirements
 
 This module was written in Java SE 6+ and uses its features, so it's required to work on or using it.
 It also uses Maven 3 and TestNG with Arquillian for unit and integration tests purpose.
+
+Thanks
+======
+
+This code is trongly based on the code from https://github.com/PiotrNowicki/CDI-Config
+I should have forked it from his repo but, I didn't know that then :-)
