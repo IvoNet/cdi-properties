@@ -47,7 +47,7 @@ this doesn't work out - it fallback to the injected field name. E.g. for such de
     }
     
 it will try to find property with `nl.ivonet.MyClass.myName` key. If it won't be found, it'll try with `myName`.
-If this also fails - because of default `required=true`, it will throw an unmet CD Idependency exception. 
+If this also fails - because of default `required=true`, it will throw an unmet CDI dependency exception.
 
 Requirements
 ============
