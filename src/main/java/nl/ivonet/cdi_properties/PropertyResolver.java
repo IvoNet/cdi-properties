@@ -1,5 +1,7 @@
 package nl.ivonet.cdi_properties;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Singleton;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,9 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Singleton;
 
 /**
  * <p>
@@ -45,18 +44,21 @@ public class PropertyResolver {
      * <p/>
      * This method is called by the container only. It's not supposed to be invoked by the client directly.
      *
-     * @throws IOException in case of any property file access problem
      */
     @SuppressWarnings({"rawtypes", "unchecked", "unused"})
     @PostConstruct
-    private void init() throws IOException {
+    private void init()  {
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         final List<File> propertyFiles = getPropertyFiles(classLoader);
 
         for (final File file : propertyFiles) {
             final Properties p = new Properties();
-            p.load(new FileInputStream(file));
+            try {
+                p.load(new FileInputStream(file));
+            } catch (IOException e) {
+                throw new RuntimeException(e); //TODO clean me up
+            }
 
             properties.putAll(new HashMap<String, Object>((Map) p));
         }
@@ -67,12 +69,16 @@ public class PropertyResolver {
      *
      * @param classLoader classpath to be used when scanning for files.
      * @return found property files.
-     * @throws IOException if there was a problem while accessing resources using the <code>classLoader</code>.
      */
-    List<File> getPropertyFiles(final ClassLoader classLoader) throws IOException {
+    List<File> getPropertyFiles(final ClassLoader classLoader)  {
         final List<File> result = new ArrayList<File>();
 
-        final Enumeration<URL> resources = classLoader.getResources("");
+        final Enumeration<URL> resources;
+        try {
+            resources = classLoader.getResources("");
+        } catch (IOException e) {
+            throw new RuntimeException(e); //TODO clean me up
+        }
 
         while (resources.hasMoreElements()) {
             final File resource = getFileFromURL(resources.nextElement());

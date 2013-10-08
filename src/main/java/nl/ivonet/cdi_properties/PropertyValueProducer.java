@@ -77,7 +77,6 @@ public class PropertyValueProducer {
     @Property
     public Double getDoubleConfigValue(final InjectionPoint ip) {
         final String value = getStringConfigValue(ip);
-
         return (value != null) ? Double.valueOf(value) : null;
     }
 
@@ -95,7 +94,6 @@ public class PropertyValueProducer {
     @Property
     public Integer getIntegerConfigValue(final InjectionPoint ip) {
         final String value = getStringConfigValue(ip);
-
         return (value != null) ? Integer.valueOf(value) : null;
     }
 }
