@@ -1,12 +1,12 @@
 package nl.ivonet.cdi_properties;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -42,12 +42,12 @@ public class PropertyFileFilterTest {
         return data.toArray(new Object[0][0]);
     }
 
-    @Test(dataProvider = "extensionDataProvider")
-    public void getExtension(final String filename, final String expectedExtension) {
-        final String actual = cut.getExtension(filename);
-
-        assertThat(actual).isEqualTo(expectedExtension);
-    }
+//    @Test(dataProvider = "extensionDataProvider")
+//    public void getExtension(final String filename, final String expectedExtension) {
+//        final String actual = cut.getExtension(filename);
+//
+//        assertThat(actual).isEqualTo(expectedExtension);
+//    }
 
     @DataProvider(name = "extensionDataProvider")
     Object[][] extensionDataProvider() {

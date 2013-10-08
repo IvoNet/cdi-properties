@@ -35,29 +35,29 @@ public class PropertyValueProducer {
     public String getStringConfigValue(final InjectionPoint injectionPoint) {
 
         final String memberName = injectionPoint.getMember().getName();
-        final String fqn = String.format("%s.%s", injectionPoint.getMember().getDeclaringClass().getName(),
-                                         memberName);
+        final String fullyQualifiedName = String
+                .format("%s.%s", injectionPoint.getMember().getDeclaringClass().getName(),
+                        memberName);
 
         // Trying with explicit key defined on the field
         final String key = injectionPoint.getAnnotated().getAnnotation(Property.class).value();
         final boolean isKeyDefined = !key.trim().isEmpty();
 
         if (isKeyDefined) {
-            return resolver.getValue(key);
+            return this.resolver.getValue(key);
         }
 
         // Falling back to fully-qualified field name resolving.
-        String value = resolver.getValue(fqn);
+        String value = this.resolver.getValue(fullyQualifiedName);
 
         // No luck... so perhaps just the field name?
         if (value == null) {
-            value = resolver.getValue(memberName);
+            value = this.resolver.getValue(memberName);
         }
 
-        // No can do - no value found but you've said it's required.
         if (value == null && injectionPoint.getAnnotated().getAnnotation(Property.class).required()) {
             throw new IllegalStateException(
-                    "No value defined for field: " + fqn + " but field was marked as required.");
+                    "No value defined for field: " + fullyQualifiedName + " but field was marked as required.");
         }
 
         return value;
