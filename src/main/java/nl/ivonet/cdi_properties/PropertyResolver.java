@@ -47,8 +47,9 @@ public class PropertyResolver {
      */
     @SuppressWarnings({"rawtypes", "unchecked", "unused"})
     @PostConstruct
-    private void init()  {
-        final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    private void init() {
+        final ClassLoader classLoader = Thread.currentThread()
+                                              .getContextClassLoader();
 
         final List<File> propertyFiles = getPropertyFiles(classLoader);
 
@@ -56,8 +57,8 @@ public class PropertyResolver {
             final Properties p = new Properties();
             try {
                 p.load(new FileInputStream(file));
-            } catch (IOException e) {
-                throw new RuntimeException(e); //TODO clean me up
+            } catch (final IOException e) {
+                throw new RuntimeException(e);
             }
 
             this.properties.putAll(new HashMap<String, Object>((Map) p));
@@ -70,13 +71,13 @@ public class PropertyResolver {
      * @param classLoader classpath to be used when scanning for files.
      * @return found property files.
      */
-    List<File> getPropertyFiles(final ClassLoader classLoader)  {
-        final List<File> result = new ArrayList<File>();
+    List<File> getPropertyFiles(final ClassLoader classLoader) {
+        final List<File> result = new ArrayList<>();
 
         final Enumeration<URL> resources;
         try {
             resources = classLoader.getResources("");
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new RuntimeException(e); //TODO clean me up
         }
 
@@ -84,6 +85,7 @@ public class PropertyResolver {
             final File resource = getFileFromURL(resources.nextElement());
 
             final File[] files = resource.listFiles(new PropertyFileFilter());
+
             result.addAll(Arrays.asList(files));
         }
 
@@ -102,7 +104,7 @@ public class PropertyResolver {
 
         try {
             result = new File(url.toURI());
-        } catch (URISyntaxException e) {
+        } catch (final URISyntaxException e) {
             result = new File(url.getPath());
         }
 
