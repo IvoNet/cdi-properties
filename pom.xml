@@ -7,6 +7,12 @@
     <name>CDI property injection</name>
     <url>http://www.ivonet.nl</url>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:IvoNet/cdi-properties.git</developerConnection>
+        <connection>scm:git:git@github.com:IvoNet/cdi-properties.git</connection>
+        <url>scm:git:git@github.com:IvoNet/cdi-properties.git</url>
+    </scm>
+
     <distributionManagement>
         <repository>
             <id>releases</id>
