@@ -60,7 +60,7 @@ public class PropertyResolver {
                 throw new RuntimeException(e); //TODO clean me up
             }
 
-            properties.putAll(new HashMap<String, Object>((Map) p));
+            this.properties.putAll(new HashMap<String, Object>((Map) p));
         }
     }
 
@@ -117,7 +117,7 @@ public class PropertyResolver {
      * @return value for specified <code>key</code> or null if not defined.
      */
     public String getValue(final String key) {
-        final Object value = properties.get(key);
+        final Object value = this.properties.get(key);
 
         return (value != null) ? String.valueOf(value) : null;
     }

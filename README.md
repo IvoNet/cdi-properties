@@ -58,5 +58,5 @@ It also uses Maven 3 and TestNG with Arquillian for unit and integration tests p
 Thanks
 ======
 
-This code is trongly based on the code from https://github.com/PiotrNowicki/CDI-Config
+This code is trongly based on the code from https://github.com/PiotrNowicki/CDI-Config.
 I should have forked it from his repo but, I didn't know that then :-)

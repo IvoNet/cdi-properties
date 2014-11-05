@@ -12,7 +12,8 @@ public class PropertyFileFilter implements FileFilter {
 
     @Override
     public boolean accept(final File pathname) {
-        return pathname != null && !pathname.isDirectory() && pathname.getName().endsWith(".properties");
+        return (pathname != null) && !pathname.isDirectory() && pathname.getName()
+                                                                        .endsWith(".properties");
 
     }
 

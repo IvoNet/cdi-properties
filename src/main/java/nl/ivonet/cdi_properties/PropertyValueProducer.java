@@ -55,7 +55,9 @@ public class PropertyValueProducer {
             value = this.resolver.getValue(memberName);
         }
 
-        if (value == null && injectionPoint.getAnnotated().getAnnotation(Property.class).required()) {
+        if ((value == null) && injectionPoint.getAnnotated()
+                                             .getAnnotation(Property.class)
+                                             .required()) {
             throw new IllegalStateException(
                     "No value defined for field: " + fullyQualifiedName + " but field was marked as required.");
         }
