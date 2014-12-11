@@ -16,12 +16,13 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * <p> Reads all valid property files within the classpath and prepare them to be fetched. </p> <p/> <p> This class
- * <strong>can</strong> be accessed concurrently by multiple clients. The inner representation of properties
- * <strong>should not</strong> be leaked out; if this is absolutely required, use unmodifiable collection. </p> <p/> <p>
- * This resolver <strong>doesn't pay attention</strong> to multiple properties defined with the same name in different
- * files. It's impossible to determine which one will take precedence, so the responsibility for name-clash is a
- * deployer concern. </p>
+ * Reads all valid property files within the classpath and prepare them to be fetched.
+ *
+ * This class can be accessed concurrently by multiple clients. The inner representation of properties should not be
+ * leaked out; if this is absolutely required, use unmodifiable collection.
+ *
+ * This resolver doesn't pay attention to multiple properties defined with the same name in different files. It's
+ * impossible to determine which one will take precedence, so the responsibility for name-clash is a deployer concern.
  *
  * @author Ivo Woltring
  */
@@ -31,8 +32,8 @@ public class PropertyResolver {
     Map<String, Object> properties = new HashMap<>();
 
     /**
-     * Initializes the properties by reading and uniforming them.
-     * This method is called by the container only. It's not supposed to be invoked by the client directly.
+     * Initializes the properties by reading and uniforming them. This method is called by the container only. It's not
+     * supposed to be invoked by the client directly.
      */
     @SuppressWarnings({"rawtypes", "unchecked", "unused"})
     @PostConstruct
