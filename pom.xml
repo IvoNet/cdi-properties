@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.ivonet</groupId>
     <artifactId>cdi-properties</artifactId>
-    <version>1.6-SNAPSHOT</version>
+    <version>1.6</version>
     <name>CDI property injection</name>
     <url>http://www.ivonet.nl</url>
 
@@ -11,7 +10,7 @@
         <developerConnection>scm:git:git@github.com:IvoNet/cdi-properties.git</developerConnection>
         <connection>scm:git:git@github.com:IvoNet/cdi-properties.git</connection>
         <url>scm:git:git@github.com:IvoNet/cdi-properties.git</url>
-        <tag>HEAD</tag>
+        <tag>cdi-properties-1.6</tag>
     </scm>
 
     <distributionManagement>
