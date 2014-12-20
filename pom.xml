@@ -20,6 +20,12 @@
         </snapshotRepository>
     </distributionManagement>
 
+    <scm>
+        <connection>scm:git:git@github.com:IvoNet/cdi-properties.git</connection>
+        <developerConnection>scm:git:git@github.com:IvoNet/cdi-properties.git</developerConnection>
+        <url>scm:git:git@github.com:IvoNet/cdi-properties.git</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.jboss.spec</groupId>
@@ -77,7 +83,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.1</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -94,7 +100,7 @@
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
-                <version>1.0.1.Final</version>
+                <version>1.0.2.Final</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
